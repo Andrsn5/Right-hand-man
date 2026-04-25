@@ -4,6 +4,7 @@ import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.auth.FirebaseAuth
 import dev.gitlive.firebase.auth.auth
 import dev.gitlive.firebase.firestore.firestore
+import org.company.app.domain.model.UserProfile
 import org.company.app.data.model.UserRemote
 import org.company.app.domain.model.AppUser
 import org.company.app.domain.repository.AuthRepository
@@ -24,7 +25,7 @@ class AuthRepositoryImpl: AuthRepository {
                         registrationDate = user.registrationDate
                     )
 
-                    firestore.collection("user").document(fbUser.uid)
+                    firestore.collection("USERS").document(fbUser.uid)
                         .set(firestoreUser)
                     fbUser
                 } else {
@@ -43,7 +44,20 @@ class AuthRepositoryImpl: AuthRepository {
             val user = auth.signInWithEmailAndPassword(email, password)
             user.user != null
         } catch (e: Exception) {
+            println("doLogin error: ${e.message}")
             false
+        }
+    }
+
+    override suspend fun getUsers(): List<UserProfile> {
+        return try {
+            val response = firestore.collection("USERS").get()
+            response.documents.map { document ->
+                document.data<UserProfile>()
+            }
+        } catch (e: Exception) {
+            println("getUsers error: ${e.message}")
+            emptyList()
         }
     }
 

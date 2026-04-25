@@ -56,7 +56,7 @@ class RegistrationScreen : Screen {
         println("RegistrationScreen State: $uiState")
 
         when {
-            viewModel.state.value.isLoading -> {
+            uiState.isLoading -> {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
@@ -67,11 +67,11 @@ class RegistrationScreen : Screen {
                 }
             }
 
-            viewModel.state.value.isRegistrationSuccess -> {
+            uiState.isRegistrationSuccess -> {
                 navigator.pop()
             }
 
-            viewModel.state.value.errorMessage.isNullOrEmpty().not() -> {
+            uiState.errorMessage.isNullOrEmpty().not() -> {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,

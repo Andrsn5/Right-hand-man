@@ -43,7 +43,9 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import cafe.adriel.voyager.transitions.SlideTransition
 import org.company.app.presentation.screens.registration.RegistrationScreen
+import org.company.app.presentation.screens.screening.UsersScreen
 import org.company.app.theme.LocalThemeIsDark
 import org.koin.compose.koinInject
 
@@ -59,7 +61,7 @@ class LoginScreen : Screen {
         println("LoginScreen State: $uiState")
 
         when {
-            viewModel.state.value.isLoading -> {
+            uiState.isLoading -> {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,
@@ -69,17 +71,13 @@ class LoginScreen : Screen {
                 }
             }
 
-            viewModel.state.value.isLoginSuccess -> {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Text(text = "Main Screen")
+            uiState.isLoginSuccess -> {
+                Navigator(UsersScreen()){ navigator ->
+                    SlideTransition(navigator)
                 }
             }
 
-            viewModel.state.value.errorMessage.isNullOrEmpty().not() -> {
+            uiState.errorMessage.isNullOrEmpty().not() -> {
                 Column(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.Center,

@@ -1,5 +1,6 @@
 package org.company.app.domain.repository
 
+import org.company.app.domain.model.UserProfile
 import org.company.app.domain.model.AppUser
 
 interface AuthRepository {
@@ -7,5 +8,7 @@ interface AuthRepository {
     suspend fun doRegister(user: AppUser): Boolean
 
     suspend fun doLogin(email: String, password: String): Boolean
+
+    suspend fun getUsers(): List<UserProfile>
 
 }
