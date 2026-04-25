@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "515811015848",
+    "project_id": "right-hand-man-edc1b",
+    "storage_bucket": "right-hand-man-edc1b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:515811015848:android:ab7aee8776a541d59b169d",
+        "android_client_info": {
+          "package_name": "org.company.app.androidApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKkYmUdRk9wbvZiHqvMCao-SF9rxRKnRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
