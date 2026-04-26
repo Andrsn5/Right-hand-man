@@ -27,15 +27,6 @@
 - **MVVM Pattern** — разделение логики и UI с ViewModel
 - **Type-safe Networking** — Ktor с Kotlinx Serialization для типобезопасных API запросов
 
-## Преимущества
-
-- **Кроссплатформенность** — один код для 4 платформ (Android, Desktop, iOS, Web)
-- **Современный UI** — Compose Multiplatform с Material 3
-- **Чистая архитектура** — тестируемость и поддерживаемость кода
-- **Реактивность** — автоматические обновления UI при изменении данных
-- **Минимум платформенного кода** — максимальный общий код в commonMain
-
-
 <div style="display: flex; justify-content: center; gap: 10px;">
   <img src="https://github.com/user-attachments/assets/83b0dcfa-2683-43a2-b2d9-d1e431262cc3" width="40%" />
   <img src="https://github.com/user-attachments/assets/c301451a-928a-4e0c-844b-ad188ad7e99b" width="40%" />
