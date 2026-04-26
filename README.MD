@@ -1,27 +1,41 @@
-# Compose Multiplatform Application
+## Stack
 
-## Before running!
- - check your system with [KDoctor](https://github.com/Kotlin/kdoctor)
- - install JDK 17 on your machine
- - add `local.properties` file to the project root and set a path to Android SDK there
+**Язык:** Kotlin Multiplatform
 
-### Android
-To run the application on android device/emulator:  
- - open project in Android Studio and run imported android run configuration
+**Архитектура:** Clean Architecture (Presentation → Domain → Data)
 
-To build the application bundle:
- - run `./gradlew :composeApp:assembleDebug`
- - find `.apk` file in `composeApp/build/outputs/apk/debug/composeApp-debug.apk`
+| Слой | Технологии |
+|------|------------|
+| **UI** | Compose Multiplatform, Material 3, Voyager Navigation, Compose ImageLoader |
+| **State** | MVVM ViewModel, Kotlinx Coroutines, Flow, StateFlow |
+| **DI** | Koin |
+| **Network** | Ktor, Kotlinx Serialization |
+| **Backend** | Firebase (Auth, Firestore) |
+| **Build** | Gradle KTS, KSP |
+| **Logging** | Napier |
+| **Resources** | Libres |
+| **Date/Time** | Kotlinx DateTime |
 
-### Desktop
-Run the desktop application: `./gradlew :composeApp:run`
+## Ключевые решения
 
-### iOS
-To run the application on iPhone device/simulator:
- - Open `iosApp/iosApp.xcproject` in Xcode and run standard configuration
- - Or use [Kotlin Multiplatform Mobile plugin](https://plugins.jetbrains.com/plugin/14936-kotlin-multiplatform-mobile) for Android Studio
+- **Multiplatform** — единая кодовая база для Android, Desktop, iOS, и Web
+- **Clean Architecture** — четкое разделение на Presentation, Domain, и Data слои
+- **Reactive UI** — Flow и StateFlow для реактивного обновления интерфейса
+- **Firebase Integration** — аутентификация и база данных Firestore
+- **Koin DI** — легковесная инъекция зависимостей без генерации кода
+- **Voyager Navigation** — простая и мощная навигация для Compose Multiplatform
+- **MVVM Pattern** — разделение логики и UI с ViewModel
+- **Type-safe Networking** — Ktor с Kotlinx Serialization для типобезопасных API запросов
 
-### Browser
-Run the browser application: `./gradlew :composeApp:jsBrowserDevelopmentRun`
+## Преимущества
 
-# kmp-simple-app
+- **Кроссплатформенность** — один код для 4 платформ (Android, Desktop, iOS, Web)
+- **Современный UI** — Compose Multiplatform с Material 3
+- **Чистая архитектура** — тестируемость и поддерживаемость кода
+- **Реактивность** — автоматические обновления UI при изменении данных
+- **Минимум платформенного кода** — максимальный общий код в commonMain
+
+<div style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/ca00b9e8-6058-4936-b3db-5e1b7bbed614" width="40%" />
+  <img src="https://github.com/user-attachments/assets/95d0db6b-f29d-4082-8968-1a0675e2f883" width="40%" />
+</div>
